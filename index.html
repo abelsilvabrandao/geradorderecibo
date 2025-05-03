@@ -181,12 +181,12 @@
       border-bottom: none;
     }
     #logout-button {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(145deg, #d32f2f, #f44336);
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background: #f44336;
   border: none;
   color: white;
   border-radius: 50%;
@@ -195,23 +195,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1100;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3),
-              -4px -4px 8px rgba(255, 255, 255, 0.1);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  padding: 0;
+  line-height: 1;
+  text-align: center;
 }
 
-#logout-button:hover {
-  background: linear-gradient(145deg, #b71c1c, #e53935);
-  transform: scale(1.05);
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4),
-              -2px -2px 6px rgba(255, 255, 255, 0.05);
+#logout-button:hover,
+#logout-button:focus {
+  background: #d32f2f;
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
-
-#logout-button:hover {
+#logout-button:active {
+  transform: scale(0.95);
   background: #c62828;
 }
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+  #logout-button {
+    bottom: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
 
     .login-info {
   margin-top: 16px;
@@ -725,8 +741,11 @@ if (tipoConsulta) {
      </div>
   </div>
 
-  <!-- Logout Button -->
-  <button id="logout-button" style="display:none;">⏻</button>
+    <button id="logout-button" aria-label="Sair">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/>
+      </svg>
+    </button>
 
   <!-- Main Content -->
   <div id="main-content" style="display:none;">
