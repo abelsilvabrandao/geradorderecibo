@@ -578,8 +578,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebas
                 <button class="action-button download-pdf" onclick="baixarPDFRecibo('${doc.id}')" title="Baixar PDF">
                   <i class="fas fa-file-pdf"></i>
                 </button>
-                <button class="action-button edit" onclick="editarRecibo('${doc.id}')" title="Editar Recibo">
-                  <i class="fas fa-edit"></i>
                 </button>
                 <button class="action-button delete" onclick="excluirRecibo('${doc.id}')" title="Excluir Recibo">
                   <i class="fas fa-trash"></i>
