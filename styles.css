@@ -97,7 +97,7 @@ canvas {
 }
 .consulta-form {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
 }
@@ -434,7 +434,8 @@ canvas {
   border-top: 1px solid #ccc;
   padding-top: 10px;
 }
-#query-results .result-item {
+#query-results .result-item,
+#recibos-container .result-item {
   border-bottom: 1px solid #ddd;
   padding: 12px;
   display: flex;
