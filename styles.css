@@ -1,0 +1,560 @@
+.logo {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 150px;
+}
+
+:root {
+  --primary-color: #4CAF50;
+  --text-color: #333;
+  --background-color: #f0f0f0;
+  --card-background: #fff;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #4CAF50;
+}
+.recibo {
+  width: 300px;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  position: relative;
+}
+.campo {
+  margin-bottom: 10px;
+}
+label {
+  display: block;
+  font-weight: bold;
+}
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+input[type='text'],
+input[type='date'] {
+  border: 1px solid #ccc;
+}
+input[type='text']:focus,
+input[type='date']:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  display: block;
+}
+
+.btn-primary {
+  background-color: #4CAF50 !important;
+}
+
+.form-container {
+  margin-bottom: 20px;
+}
+
+.tab-content {
+  position: relative;
+}
+
+.primary-buttons,
+.consulta-buttons {
+  position: relative;
+  z-index: 2;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+canvas {
+  display: none;
+}
+.consulta-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.consulta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.consulta-buttons button {
+  display: block !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+}
+
+.primary-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.primary-buttons button {
+  display: block !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+}
+
+.secondary-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-save {
+  background-color: #1b5e20 !important;
+}
+
+.btn-save:hover {
+  background-color: #2e7d32 !important;
+}
+
+/* Estilos para botões de limpar */
+.btn-clear, .btn-clear-consulta {
+  background-color: #757575 !important;
+  color: white !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: static !important;
+}
+
+.btn-clear:hover, .btn-clear-consulta:hover {
+  background-color: #616161 !important;
+}
+#recibo {
+  display: none;
+  position: relative;
+  letter-spacing: 0;
+  word-spacing: 0.2px;
+}
+#recibo .assinatura {
+  margin: 2px 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Login screen styles */
+#login-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+#login-screen.hidden {
+  display: none;
+}
+#login-screen h2 {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+#login-screen input {
+  margin-bottom: 10px;
+  width: 250px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+#login-screen button {
+  width: 260px;
+}
+#login-error {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 14px;
+  display: none;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#login-error::before {
+  content: '\26A0';
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* Tabs Navigation */
+.tabs-nav {
+  display: flex;
+  gap: 0;
+  background: #fff;
+  padding: 0;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border: none;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button:last-child {
+  border-right: none;
+}
+
+.tab-button.active {
+  background: #fff;
+  color: #4CAF50;
+  border-bottom: 2px solid #4CAF50;
+  margin-bottom: -1px;
+}
+
+.tab-button:hover:not(.active) {
+  background: #e9ecef;
+  color: #4CAF50;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  background: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Estilos para o cadastro de modelo */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.text-input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.file-input {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border: 2px dashed #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.file-input:hover {
+  border-color: #4CAF50;
+}
+
+.file-info {
+  margin: 10px 0;
+  padding: 10px;
+  background: #e8f5e9;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.btn-primary {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  width: auto;
+  margin-top: 0;
+}
+
+.btn-primary:hover {
+  background-color: #1b5e20;
+}
+
+.modelos-lista {
+  margin-top: 30px;
+}
+
+.modelo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background: #f8f9fa;
+}
+
+.modelo-info {
+  flex: 1;
+}
+
+.modelo-nome {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.modelo-titulo {
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.modelo-data {
+  color: #888;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.modelo-acoes {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-excluir {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: auto;
+  margin-top: 0;
+}
+
+.btn-excluir:hover {
+  background-color: #c82333;
+}
+
+.loader {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: #4CAF50;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin: 10px auto;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.saving-text {
+  display: none;
+  text-align: center;
+  margin: 10px 0;
+  color: #666;
+}
+
+/* Receipt query screen */
+#query-screen {
+  margin-top: 0;
+  background: white;
+  padding: 15px;
+  border-radius: 0 0 8px 8px;
+  border: none;
+}
+#query-screen h2 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+#query-screen .campo {
+  margin-bottom: 10px;
+}
+#query-results {
+  margin-top: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+#query-results .result-item {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.receipt-info {
+  flex: 1;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.action-button {
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  transition: all 0.2s;
+  background: #f8f9fa;
+  color: #666;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+}
+
+.action-button.download-img {
+  color: #2196F3;
+}
+
+.action-button.download-pdf {
+  color: #E91E63;
+}
+
+.action-button.edit {
+  color: #FF9800;
+}
+
+.action-button.delete {
+  color: #F44336;
+}
+
+.action-button i {
+  font-size: 16px;
+}
+#query-results .result-item:last-child {
+  border-bottom: none;
+}
+#logout-button {
+position: absolute;
+top: 16px;
+right: 16px;
+width: 36px;
+height: 36px;
+background: #f44336;
+border: none;
+color: white;
+border-radius: 50%;
+cursor: pointer;
+font-size: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+transition: all 0.2s ease;
+-webkit-tap-highlight-color: transparent;
+user-select: none;
+padding: 0;
+line-height: 1;
+text-align: center;
+}
+
+#logout-button:hover,
+#logout-button:focus {
+background: #d32f2f;
+opacity: 1;
+transform: scale(1.1);
+box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+#logout-button:active {
+transform: scale(0.95);
+background: #c62828;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+#logout-button {
+bottom: 16px;
+right: 16px;
+width: 36px;
+height: 36px;
+font-size: 16px;
+}
+}
+
+
+.login-info {
+margin-top: 16px;
+padding: 0 12px;
+font-size: 0.95rem;
+text-align: center;
+color: #555;
+}
+
+.login-info p {
+margin-bottom: 8px;
+line-height: 1.4;
+}
