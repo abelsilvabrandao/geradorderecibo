@@ -578,7 +578,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebas
                 <button class="action-button download-pdf" onclick="baixarPDFRecibo('${doc.id}')" title="Baixar PDF">
                   <i class="fas fa-file-pdf"></i>
                 </button>
-                </button>
                 <button class="action-button delete" onclick="excluirRecibo('${doc.id}')" title="Excluir Recibo">
                   <i class="fas fa-trash"></i>
                 </button>
@@ -591,9 +590,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebas
           Swal.fire('Erro!', 'Ocorreu um erro ao consultar recibos: ' + error.message, 'error');
         }
       }
-      
-  
-
+      // Visualizar imagem do recibo
       async function visualizarImagemRecibo(reciboId) {
         try {
           const reciboRef = doc(db, 'recibos', reciboId);
@@ -690,6 +687,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebas
           <br>
           ${recibo.assinaturaDataUrl ? `<div style="text-align:center;"><img src="${recibo.assinaturaDataUrl}" alt="Assinatura" style="max-width: 100%; height: 40px;"><br></div>` : ""}
           <div style="text-align: center; margin-top: 10px;">
+          ${assinaturaDataUrl ? `<img src="${assinaturaDataUrl}" alt="Assinatura" style="max-width: 100%; height: 50px;"><br>` : ''}
             <p style="margin: 4px 0;">____________________________</p>
             <p style="margin: 2px 0; font-size: 13px;"><strong>${recibo.emitente}</strong></p>
             <p style="margin: 0; font-size: 13px;">CPF: ${recibo.cpf_emitente}</p>
